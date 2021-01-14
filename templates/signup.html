@@ -1,0 +1,28 @@
+{% extends 'home.html' %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block title %}
+        <title>Sign Up</title>
+        {% endblock %}
+    </head>
+    <body>
+        {% block content %}
+        <div class="mx-auto" style="width: 400px;">
+            <div style="margin-top: 70px;">
+                <h2>Create an account</h2>
+            </div>
+            <form method="POST" class="form-group form-floating">
+                {% csrf_token %}
+                <div style="margin-top: 20px;">
+                    {{form|crispy}}
+                    <div style="margin-top: 10px;">
+                        <button type="submit" class="btn btn-success">Sign Up</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        {% endblock %}
+    </body>
+</html>
